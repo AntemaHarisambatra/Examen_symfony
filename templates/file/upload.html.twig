@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Uploader un fichier{% endblock %}
+{% block body %}
+<h1>Uploader un fichier</h1>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Envoyer</button>
+</form>
+<a href="{{ path('file_index') }}">Retour à la liste</a>
+{% endblock %}

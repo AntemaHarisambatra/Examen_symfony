@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des fichiers{% endblock %}
+{% block body %}
+<h1>Fichiers partagés</h1>
+<a href="{{ path('file_upload') }}">Uploader un fichier</a>
+<table border="1">
+    <tr>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Télécharger</th>
+        <th>Supprimer</th>
+        <th>Partager</th>
+    </tr>
+    {% for file in files %}
+    <tr>
+        <td>{{ file.name }}</td>
+        <td>{{ file.type }}</td>
+        <td><a href="{{ path('file_download', {'id': file.id}) }}">Télécharger</a></td>
+        <td><a href="{{ path('file_delete', {'id': file.id}) }}" onclick="return confirm('Supprimer ce fichier ?');">Supprimer</a></td>
+        <td>
+            <input type="text" value="{{ baseUrl ~ path('file_share', {'sharedLink': file.sharedLink}) }}" readonly style="width:90%" onclick="this.select();">
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

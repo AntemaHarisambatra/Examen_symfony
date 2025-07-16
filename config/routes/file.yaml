@@ -1,0 +1,19 @@
+file_index:
+    path: /files
+    controller: App\Controller\FileController::index
+
+file_upload:
+    path: /files/upload
+    controller: App\Controller\FileController::upload
+
+file_download:
+    path: /files/download/{id}
+    controller: App\Controller\FileController::download
+
+file_delete:
+    path: /files/delete/{id}
+    controller: App\Controller\FileController::delete
+
+file_share:
+    path: /files/share/{sharedLink}
+    controller: App\Controller\FileController::share
